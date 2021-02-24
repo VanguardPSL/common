@@ -1,0 +1,19 @@
+API Endpoints:
+
+1. Weekly and Monthly trends on user booking, occupying, cancelled and unoccupied seats
+- POST /api/analyticReport/user/{id}
+	body : dateFrom, dateTo, building {Optional}
+	//Return both weekly and monthly
+
+2. Weekly and Monthly trends of booking, occupying, cancelled and unoccupied seats considering all users
+- POST /api/analyticReport/weekly
+	body : dateFrom, dateTo, building {Optional}
+	//Return both weekly and monthly
+	
+3. Trend on for how long seat booked but occupied
+- GET /api/analyticReport/seat/user/{id}
+
+4. Display top rated seats across building
+- POST /api/analyticReport/seat/toprating
+	body : building {optional}
+	//based on feedback
