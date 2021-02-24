@@ -1,0 +1,51 @@
+create database seatBooking;
+
+use seatBooking;
+
+create table Seat(
+    ID varchar(36) NOT NULL,
+    seatNumber varchar(10) NOT NULL,
+    cubicleNumber varchar(10) NOT NULL,
+    floorNumber varchar(10) NOT NULL,
+    buildingName varchar(50) NOT NULL,
+    wing varchar(10),
+    active boolean NOT NULL,
+    isNearCafeteria boolean,
+    isNearWashroom boolean,
+    isNearWindow boolean,
+    PRIMARY KEY (ID)
+);
+
+create table Employee(
+    ID varchar(36) NOT NULL,
+    firstName varchar(25) NOT NULL,
+    lastName varchar(25) NOT NULL,
+    email varchar(100),
+    employeeCode varchar(20) NOT NULL,
+    PRIMARY KEY (ID)
+);
+
+create table Reservation(
+    ID varchar(36) NOT NULL,
+    employeeId varchar(36) NOT NULL,
+    seatId varchar(36) NOT NULL,
+    dateOfBooking DATE NOT NULL,
+    bookingStartsAt date NOT NULL,
+    bookingEndsAt date NOT NULL,
+    bookingStatus date NOT NULL,
+    occupiedFrom date,
+    occupiedTo date,
+    PRIMARY KEY (ID)
+);
+
+create table Feedback(
+    ID varchar(36) NOT NULL,
+    employeeId varchar(36) NOT NULL,
+    seatId varchar(36) NOT NULL,
+    rating int NOT NULL,
+    comments varchar(100),
+    PRIMARY KEY (ID)
+);
+
+create index date_index on reservation (dateOfBooking);
+create index date_time_index on reservation (dateOfBooking, bookingStartsAt, bookingEndsAt);
