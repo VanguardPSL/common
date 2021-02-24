@@ -1,0 +1,289 @@
+1. Reserve seat API
+    URL : POST http://localhost:8080/api/seatbooking/reserve
+    Request Body : 
+      {
+          "employeeCode":"024466",
+          "seatId":"1",
+          "from":"2021-03-02",
+          "to": "2021-03-04",
+          "startsAt":"10:00:00",
+          "endsAt":"11:00:00"
+      }
+    OR
+      {
+          "employeeCode":"024466",
+          "seatId":"1",
+          "from":"2021-03-02",
+          "startsAt":"12:00:00",
+          "endsAt":"15:30:00"
+      }
+
+    Response body : 
+      {
+          "code": 200,
+          "message": "Seat reserved"
+      }
+    OR
+      {
+          "code": 409,
+          "message": "Conflicting booking found for this seat"
+      }
+
+2. Occupy seat API
+    URL : PUT http://localhost:8080/api/seatbooking/occupy
+    Request body : 
+      {
+          "reservationId":"87c3ddbe-3165-4133-8fbf-f04577a4b14d",
+          "time":"12:05:00"
+      }
+
+    Response body : 
+      {
+          "code": 200,
+          "message": "Seat occupied"
+      }
+
+3. Get seats API
+    URL : GET http://localhost:8080/api/seatbooking/seats?buildingName=Gargi&floorNumber=3
+    Request body : NA
+    Response body : 
+    [
+        {
+            "id": "1",
+            "seatNumber": 1,
+            "cubicleNumber": "1",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [
+                {
+                    "id": "080e6d85-3b45-45d0-83bf-918032590f04",
+                    "dateOfBooking": "2021-02-27",
+                    "startsAt": "10:00:00",
+                    "endsAt": "12:00:00",
+                    "bookingStatus": "OCCUPIED",
+                    "occupiedAt": "10:05:00",
+                    "occupiedTill": null
+                },
+                {
+                    "id": "16560f13-4e40-4512-ae8e-72cf904573f9",
+                    "dateOfBooking": "2021-02-27",
+                    "startsAt": "13:00:00",
+                    "endsAt": "15:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "435e6248-f622-43a3-8d6d-b59f260dd746",
+                    "dateOfBooking": "2021-02-28",
+                    "startsAt": "10:00:00",
+                    "endsAt": "12:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "ae1b3105-b2e4-48bb-a402-c45dc9feaebe",
+                    "dateOfBooking": "2021-03-01",
+                    "startsAt": "10:00:00",
+                    "endsAt": "12:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "48a9b4a8-1566-40b7-a240-d2c14a7a3afd",
+                    "dateOfBooking": "2021-03-02",
+                    "startsAt": "11:00:00",
+                    "endsAt": "11:30:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "87c3ddbe-3165-4133-8fbf-f04577a4b14d",
+                    "dateOfBooking": "2021-03-02",
+                    "startsAt": "12:00:00",
+                    "endsAt": "15:30:00",
+                    "bookingStatus": "OCCUPIED",
+                    "occupiedAt": "12:05:00",
+                    "occupiedTill": null
+                },
+                {
+                    "id": "ca9bd68b-a9ff-46cd-b250-2858f2b90d74",
+                    "dateOfBooking": "2021-03-02",
+                    "startsAt": "10:00:00",
+                    "endsAt": "11:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "602d93dc-0a93-496d-bdf2-b6b707b97aba",
+                    "dateOfBooking": "2021-03-03",
+                    "startsAt": "10:00:00",
+                    "endsAt": "11:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                },
+                {
+                    "id": "f60d7c55-fe3d-48e2-a819-37428c5c1b15",
+                    "dateOfBooking": "2021-03-04",
+                    "startsAt": "10:00:00",
+                    "endsAt": "11:00:00",
+                    "bookingStatus": "RESERVED",
+                    "occupiedAt": null,
+                    "occupiedTill": null
+                }
+            ],
+            "active": true,
+            "nearWindow": true,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "2",
+            "seatNumber": 2,
+            "cubicleNumber": "1",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "3",
+            "seatNumber": 3,
+            "cubicleNumber": "1",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "4",
+            "seatNumber": 4,
+            "cubicleNumber": "1",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "5",
+            "seatNumber": 1,
+            "cubicleNumber": "2",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": true,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "6",
+            "seatNumber": 2,
+            "cubicleNumber": "2",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "7",
+            "seatNumber": 3,
+            "cubicleNumber": "2",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "8",
+            "seatNumber": 4,
+            "cubicleNumber": "2",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "9",
+            "seatNumber": 1,
+            "cubicleNumber": "3",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": true,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "10",
+            "seatNumber": 2,
+            "cubicleNumber": "3",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "11",
+            "seatNumber": 3,
+            "cubicleNumber": "3",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        },
+        {
+            "id": "12",
+            "seatNumber": 4,
+            "cubicleNumber": "3",
+            "floorNumber": 3,
+            "buildingName": "Gargi",
+            "wing": "NONE",
+            "reservations": [],
+            "active": true,
+            "nearWindow": false,
+            "nearWashroom": false,
+            "nearCafetaria": false
+        }
+    ]
