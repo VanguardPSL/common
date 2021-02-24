@@ -1,0 +1,40 @@
+API endpoints : 
+
+
+1) Get all seats OR seats filtered by some preferences 
+- GET /api/seatbooking/seats?buildingName=&floorNumber=&dateFrom=&dateTo=&timeFrom=&timeTo=
+	- accepts -> buildingName, floorNumber, dateFrom, dateTo, timeFrom, timeTo 
+	- returns list of seats with their status
+	
+2) Book a seat
+- POST /api/seatbooking/reserve
+	- accept -> employeeCode, seatId, date, timeFrom, timeTo
+	- return status -> OK/FAILED, send email notification to user upon confirmation
+
+3) Occupy a seat
+- PUT /api/seatbooking/occupy
+	- accept -> employeeCode, seatId, time
+	- return status -> OK/FAILED
+
+4) Leave OR Release a seat
+- PUT /api/seatbooking/release
+	- accept -> employeeCode, seatId, time
+	- return status
+	
+5) Cancel a seat
+- PUT /api/seatbooking/cancel
+	- accept -> employeeCode, seatId, time
+	- return status
+
+6) View my bookings
+- GET /api/employee/{code}/bookings
+	- accept -> employeeCode
+
+7) Provide feedback
+- POST /api/feedback
+	- accepts -> employeeId, seatId, rating, comments
+
+8) Get seat feedback
+- GET /api/feedback/seat/{id}
+	- accepts -> seatId
+	- return feedback on the seat
