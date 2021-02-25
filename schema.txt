@@ -2,49 +2,68 @@ create database seatBooking;
 
 use seatBooking;
 
+create table SeatWing(
+    id varchar(36) NOT NULL,
+    wingName varchar(10) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+create table BookingStatus(
+    id varchar(36) NOT NULL,
+    status varchar(15) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 create table Seat(
-    ID varchar(36) NOT NULL,
-    seatNumber varchar(10) NOT NULL,
+    id varchar(36) NOT NULL,
+    seatNumber int NOT NULL,
     cubicleNumber varchar(10) NOT NULL,
-    floorNumber varchar(10) NOT NULL,
+    floorNumber int NOT NULL,
     buildingName varchar(50) NOT NULL,
-    wing varchar(10),
+    wingId varchar(36),
     active boolean NOT NULL,
     isNearCafeteria boolean,
     isNearWashroom boolean,
     isNearWindow boolean,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (id),
+	FOREIGN KEY (wingId) REFERENCES SeatWing(id) ON DELETE CASCADE
 );
 
 create table Employee(
-    ID varchar(36) NOT NULL,
+    id varchar(20) NOT NULL,
     firstName varchar(25) NOT NULL,
     lastName varchar(25) NOT NULL,
     email varchar(100),
-    employeeCode varchar(20) NOT NULL,
-    PRIMARY KEY (ID)
+    PRIMARY KEY (id)
 );
 
 create table Reservation(
-    ID varchar(36) NOT NULL,
+    id varchar(36) NOT NULL,
     employeeId varchar(36) NOT NULL,
     seatId varchar(36) NOT NULL,
     dateOfBooking DATE NOT NULL,
-    bookingStartsAt date NOT NULL,
-    bookingEndsAt date NOT NULL,
-    bookingStatus date NOT NULL,
-    occupiedFrom date,
-    occupiedTo date,
-    PRIMARY KEY (ID)
+    bookingStartsAt time NOT NULL,
+    bookingEndsAt time NOT NULL,
+    bookingStatusId varchar(36) NOT NULL,
+    occupiedFrom time,
+    occupiedTill time,
+    PRIMARY KEY (id),
+	INDEX (dateOfBooking),
+	INDEX (dateOfBooking, bookingStartsAt, bookingEndsAt),
+	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE,
+	FOREIGN KEY (seatId) REFERENCES Seat(id) ON DELETE CASCADE,
+	FOREIGN KEY (bookingStatusId) REFERENCES BookingStatus(id) ON DELETE CASCADE
 );
 
 create table Feedback(
-    ID varchar(36) NOT NULL,
+    id varchar(36) NOT NULL,
     employeeId varchar(36) NOT NULL,
     seatId varchar(36) NOT NULL,
     rating int NOT NULL,
     comments varchar(100),
-    PRIMARY KEY (ID)
+    PRIMARY KEY (id),
+	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE,
+	FOREIGN KEY (seatId) REFERENCES Seat(id) ON DELETE CASCADE
 );
 
 create index date_index on reservation (dateOfBooking);
