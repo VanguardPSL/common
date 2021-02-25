@@ -65,6 +65,3 @@ create table Feedback(
 	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE,
 	FOREIGN KEY (seatId) REFERENCES Seat(id) ON DELETE CASCADE
 );
-
-create index date_index on reservation (dateOfBooking);
-create index date_time_index on reservation (dateOfBooking, bookingStartsAt, bookingEndsAt);
