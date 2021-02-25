@@ -21,7 +21,7 @@ create table Seat(
     floorNumber int NOT NULL,
     buildingName varchar(50) NOT NULL,
     wingId varchar(36),
-    active boolean NOT NULL,
+    isActive boolean NOT NULL,
     isNearCafeteria boolean,
     isNearWashroom boolean,
     isNearWindow boolean,
