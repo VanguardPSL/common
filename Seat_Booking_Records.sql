@@ -95,7 +95,7 @@ VALUES (2,'C1',1,'Pingala',5,true),
 (4,'C2',2,'Bhaskar',2,true);
 
 
-create table SeatBooking.Employee(
+create table seatBooking.Employee(
     id varchar(20) NOT NULL,
     firstName varchar(25) NOT NULL,
     lastName varchar(25) NOT NULL,
@@ -262,4 +262,4 @@ VALUES
 ('024461',50, 5);
 
 create index date_index on seatBooking.Reservation (dateOfBooking);
-create index date_time_index on seatBooking.reservation (dateOfBooking, bookingStartsAt, bookingEndsAt);
+create index date_time_index on seatBooking.Reservation (dateOfBooking, bookingStartsAt, bookingEndsAt);
