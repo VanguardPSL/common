@@ -2,98 +2,95 @@ create database seatBooking;
 
 use seatBooking;
 
-create table SeatWing(
-    id int NOT NULL,
+create table seatBooking.SeatWing(
+    id varchar(36) NOT NULL,
     wingName varchar(10) NOT NULL,
     PRIMARY KEY (id)
 );
 
-INSERT INTO SeatWing VALUES (1 , 'NORTH'),(2 , 'SOUTH'), (3 , 'EAST'), (4 , 'WEST'), (5 , 'NONE');
+INSERT INTO seatBooking.SeatWing VALUES ('north' , 'NORTH'),('south' , 'SOUTH'), ('east' , 'EAST'), ('west' , 'WEST'), ('none' , 'NONE');
 
-create table BookingStatus(
-    id int NOT NULL,
+create table seatBooking.BookingStatus(
+    id varchar(36) NOT NULL,
     status varchar(15) NOT NULL,
     PRIMARY KEY (id)
 );
 
-INSERT INTO BookingStatus VALUES (1 , 'RESERVED'),(2 , 'OCCUPIED'), (3 , 'CANCELLED');
+INSERT INTO seatBooking.BookingStatus VALUES ('reserved' , 'RESERVED'),('occupied' , 'OCCUPIED'), ('cancelled' , 'CANCELLED');
 
 create table seatBooking.Seat(
-    id int NOT NULL AUTO_INCREMENT, 
+    id varchar(36) NOT NULL, 
     seatNumber int NOT NULL,
     cubicleNumber varchar(10) NOT NULL,
     floorNumber int NOT NULL,
     buildingName varchar(50) NOT NULL,
-    wingId int,
+    wingId varchar(36),
     active boolean NOT NULL,
     isNearCafeteria boolean,
     isNearWashroom boolean,
     isNearWindow boolean,
     PRIMARY KEY (id),
-	FOREIGN KEY (wingId) REFERENCES SeatWing(id) ON DELETE CASCADE
+	FOREIGN KEY (wingId) REFERENCES seatBooking.SeatWing(id) ON DELETE CASCADE
 );
 
 INSERT INTO seatBooking.Seat (id,seatNumber,cubicleNumber,floorNumber,buildingName,wingId,active)
-VALUES (1,1,'C1',1,'Pingala',5,true);
-
-
-INSERT INTO seatBooking.Seat (seatNumber,cubicleNumber,floorNumber,buildingName,wingId,active)
-VALUES (2,'C1',1,'Pingala',5,true),
-(3,'C1',1,'Pingala',5,true),
-(4,'C1',1,'Pingala',5,true),
-(1,'C2',1,'Pingala',5,true),
-(2,'C2',1,'Pingala',5,true),
-(3,'C2',1,'Pingala',5,true),
-(4,'C2',1,'Pingala',5,true),
-(2,'C1',2,'Pingala',5,true),
-(4,'C1',2,'Pingala',5,true),
-(1,'C2',2,'Pingala',5,true),
-(3,'C2',2,'Pingala',5,true),
-(1,'C1',1,'Aryabhatta',5,true),
-(2,'C1',1,'Aryabhatta',5,true),
-(3,'C2',1,'Aryabhatta',5,true),
-(4,'C2',1,'Aryabhatta',5,true),
-(1,'C3',1,'Aryabhatta',5,true),
-(3,'C3',1,'Aryabhatta',5,true),
-(1,'C1',2,'Aryabhatta',5,true),
-(2,'C1',2,'Aryabhatta',5,true),
-(3,'C2',2,'Aryabhatta',5,true),
-(4,'C2',2,'Aryabhatta',5,true),
-(1,'C3',2,'Aryabhatta',5,true),
-(3,'C3',2,'Aryabhatta',5,true),
-(1,'C1',1,'Yajurveda',5,true),
-(3,'C1',1,'Yajurveda',5,true),
-(2,'C2',1,'Yajurveda',5,true),
-(4,'C2',1,'Yajurveda',5,true),
-(1,'C1',2,'Yajurveda',5,true),
-(3,'C1',2,'Yajurveda',5,true),
-(2,'C2',2,'Yajurveda',5,true),
-(4,'C2',2,'Yajurveda',5,true),
-(1,'C1',1,'Maitreyi',5,true),
-(3,'C1',1,'Maitreyi',5,true),
-(2,'C2',1,'Maitreyi',5,true),
-(4,'C2',1,'Maitreyi',5,true),
-(1,'C1',2,'Maitreyi',5,true),
-(3,'C1',2,'Maitreyi',5,true),
-(2,'C2',2,'Maitreyi',5,true),
-(4,'C2',2,'Maitreyi',5,true),
-(1,'C1',1,'Gargi',5,true),
-(3,'C1',1,'Gargi',5,true),
-(2,'C2',1,'Gargi',5,true),
-(4,'C2',1,'Gargi',5,true),
-(1,'C1',2,'Gargi',5,true),
-(3,'C1',2,'Gargi',5,true),
-(2,'C2',2,'Gargi',5,true),
-(4,'C2',2,'Gargi',5,true),
-(1,'C1',1,'Bhaskar',1,true),
-(3,'C1',1,'Bhaskar',1,true),
-(2,'C2',1,'Bhaskar',2,true),
-(4,'C2',1,'Bhaskar',2,true),
-(1,'C1',2,'Bhaskar',1,true),
-(3,'C1',2,'Bhaskar',1,true),
-(2,'C2',2,'Bhaskar',2,true),
-(4,'C2',2,'Bhaskar',2,true);
-
+VALUES 
+(UUID(),1,'C1',1,'Pingala','none',true),
+(UUID(), 2,'C1',1,'Pingala','none',true),
+(UUID(), 3,'C1',1,'Pingala','none',true),
+(UUID(), 4,'C1',1,'Pingala','none',true),
+(UUID(), 1,'C2',1,'Pingala','none',true),
+(UUID(), 2,'C2',1,'Pingala','none',true),
+(UUID(), 3,'C2',1,'Pingala','none',true),
+(UUID(), 4,'C2',1,'Pingala','none',true),
+(UUID(), 2,'C1',2,'Pingala','none',true),
+(UUID(), 4,'C1',2,'Pingala','none',true),
+(UUID(), 1,'C2',2,'Pingala','none',true),
+(UUID(), 3,'C2',2,'Pingala','none',true),
+(UUID(), 1,'C1',1,'Aryabhatta','none',true),
+(UUID(), 2,'C1',1,'Aryabhatta','none',true),
+(UUID(), 3,'C2',1,'Aryabhatta','none',true),
+(UUID(), 4,'C2',1,'Aryabhatta','none',true),
+(UUID(), 1,'C3',1,'Aryabhatta','none',true),
+(UUID(), 3,'C3',1,'Aryabhatta','none',true),
+(UUID(), 1,'C1',2,'Aryabhatta','none',true),
+(UUID(), 2,'C1',2,'Aryabhatta','none',true),
+(UUID(), 3,'C2',2,'Aryabhatta','none',true),
+(UUID(), 4,'C2',2,'Aryabhatta','none',true),
+(UUID(), 1,'C3',2,'Aryabhatta','none',true),
+(UUID(), 3,'C3',2,'Aryabhatta','none',true),
+(UUID(), 1,'C1',1,'Yajurveda','none',true),
+(UUID(), 3,'C1',1,'Yajurveda','none',true),
+(UUID(), 2,'C2',1,'Yajurveda','none',true),
+(UUID(), 4,'C2',1,'Yajurveda','none',true),
+(UUID(), 1,'C1',2,'Yajurveda','none',true),
+(UUID(), 3,'C1',2,'Yajurveda','none',true),
+(UUID(), 2,'C2',2,'Yajurveda','none',true),
+(UUID(), 4,'C2',2,'Yajurveda','none',true),
+(UUID(), 1,'C1',1,'Maitreyi','none',true),
+(UUID(), 3,'C1',1,'Maitreyi','none',true),
+(UUID(), 2,'C2',1,'Maitreyi','none',true),
+(UUID(), 4,'C2',1,'Maitreyi','none',true),
+(UUID(), 1,'C1',2,'Maitreyi','none',true),
+(UUID(), 3,'C1',2,'Maitreyi','none',true),
+(UUID(), 2,'C2',2,'Maitreyi','none',true),
+(UUID(), 4,'C2',2,'Maitreyi','none',true),
+(UUID(), 1,'C1',1,'Gargi','none',true),
+(UUID(), 3,'C1',1,'Gargi','none',true),
+(UUID(), 2,'C2',1,'Gargi','none',true),
+(UUID(), 4,'C2',1,'Gargi','none',true),
+(UUID(), 1,'C1',2,'Gargi','none',true),
+(UUID(), 3,'C1',2,'Gargi','none',true),
+(UUID(), 2,'C2',2,'Gargi','none',true),
+(UUID(), 4,'C2',2,'Gargi','none',true),
+(UUID(), 1,'C1',1,'Bhaskar','north',true),
+(UUID(), 3,'C1',1,'Bhaskar','north',true),
+(UUID(), 2,'C2',1,'Bhaskar','south',true),
+(UUID(), 4,'C2',1,'Bhaskar','south',true),
+(UUID(), 1,'C1',2,'Bhaskar','north',true),
+(UUID(), 3,'C1',2,'Bhaskar','north',true),
+(UUID(), 2,'C2',2,'Bhaskar','south',true),
+(UUID(), 4,'C2',2,'Bhaskar','south',true);
 
 create table seatBooking.Employee(
     id varchar(20) NOT NULL,
@@ -142,13 +139,13 @@ VALUES
 ('024168','Sayeram','Eashwar','sayeram_easher@persistent.com');
 
 create table seatBooking.Reservation(
-    id int NOT NULL AUTO_INCREMENT,
+    id varchar(36) NOT NULL,
     employeeId varchar(36) NOT NULL,
-    seatId int NOT NULL,
+    seatId varchar(36) NOT NULL,
     dateOfBooking DATE NOT NULL,
     bookingStartsAt time NOT NULL,
     bookingEndsAt time NOT NULL,
-    bookingStatusId int NOT NULL,
+    bookingStatusId varchar(36) NOT NULL,
     occupiedFrom time,
     occupiedTill time,
     PRIMARY KEY (id),
@@ -159,107 +156,89 @@ create table seatBooking.Reservation(
 	FOREIGN KEY (bookingStatusId) REFERENCES BookingStatus(id) ON DELETE CASCADE
 );
 
-INSERT INTO seatBooking.Reservation 
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-(1,'024181',8,'2021-02-21','14:00:00','17:00:00',2,'14:05:00','17:00:00');
+(UUID(),'024181',8,'2021-02-21','14:00:00','17:00:00','occupied','14:05:00','17:00:00'),
+(UUID(),'024181',8,'2021-02-22','14:00:00','17:00:00','occupied','14:15:00','16:30:00'),
+(UUID(),'024181',8,'2021-02-23','14:00:00','17:00:00','occupied','14:15:00','16:30:00'),
+(UUID(),'024181',8,'2021-02-24','14:00:00','17:00:00','occupied','14:15:00','16:30:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
-('024181',8,'2021-02-22','14:00:00','17:00:00',2,'14:15:00','16:30:00'),
-('024181',8,'2021-02-23','14:00:00','17:00:00',2,'14:15:00','16:30:00'),
-('024181',8,'2021-02-24','14:00:00','17:00:00',2,'14:15:00','16:30:00');
+(UUID(),'024181',8,'2021-02-25','14:00:00','17:00:00','reserved');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024181',8,'2021-02-25','14:00:00','17:00:00',1);
+(UUID(),'024452',34,'2021-02-20','11:00:00','17:00:00','occupied','11:10:00','17:20:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
-('024452',34,'2021-02-20','11:00:00','17:00:00',2,'11:10:00','17:20:00');
+(UUID(),'024452',34,'2021-02-21','13:00:00','16:00:00','cancelled');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024452',34,'2021-02-21','13:00:00','16:00:00',3);
+(UUID(),'024452',34,'2021-02-22','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024452',34,'2021-02-22','13:00:00','16:00:00',2,'13:20:00','16:20:00');
+(UUID(),'024385',56,'2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
 
-
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024385',56,'2021-02-23','13:00:00','16:00:00',2,'13:20:00','16:20:00');
+(UUID(),'024385',56,'2021-02-24','13:00:00','16:00:00','occupied','13:10:00','15:50:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024385',56,'2021-02-24','13:00:00','16:00:00',2,'13:10:00','15:50:00');
+(UUID(),'035163',30,'2021-02-22','09:00:00','15:00:00','occupied','09:20:00','14:45:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('035163',30,'2021-02-22','09:00:00','15:00:00',2,'09:20:00','14:45:00');
+(UUID(),'035163',31,'2021-02-23','09:00:00','15:00:00','occupied','09:20:00','14:45:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('035163',31,'2021-02-23','09:00:00','15:00:00',2,'09:20:00','14:45:00');
+(UUID(),'024461',50,'2021-02-24','09:00:00','15:00:00','occupied','09:20:00','14:50:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024461',50,'2021-02-24','09:00:00','15:00:00',2,'09:20:00','14:50:00');
+(UUID(),'024461',51,'2021-02-24','15:00:00','18:00:00','occupied','15:20:00','17:50:00');
 
-
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024461',51,'2021-02-24','15:00:00','18:00:00',2,'15:20:00','17:50:00');
+(UUID(),'024466',48,'2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024466',48,'2021-02-23','13:00:00','16:00:00',2,'13:20:00','16:20:00');
+(UUID(),'024466',44,'2021-02-24','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('024466',44,'2021-02-24','13:00:00','16:00:00',2,'13:20:00','16:20:00');
+(UUID(),'024461',52,'2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
 
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
+INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
-('024461',52,'2021-02-23','13:00:00','16:00:00',2,'13:20:00','16:20:00');
-
-INSERT INTO seatBooking.Reservation (employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
-VALUES
-('024466',33,'2021-02-22','13:00:00','16:00:00',1);
+(UUID(),'024466',33,'2021-02-22','13:00:00','16:00:00','reserved');
 
 
 create table seatBooking.Feedback(
-    id int NOT NULL AUTO_INCREMENT,
+    id varchar(36) NOT NULL,
     employeeId varchar(36) NOT NULL,
-    seatId int NOT NULL,
     rating int NOT NULL,
     comments varchar(100),
     PRIMARY KEY (id),
 	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE,
-	FOREIGN KEY (seatId) REFERENCES Seat(id) ON DELETE CASCADE
 );
 
 
-INSERT INTO seatBooking.Feedback (id,employeeId,seatId,rating)
+INSERT INTO seatBooking.Feedback (id,employeeId,rating)
 VALUES
-(1,'024181',8, 4);
-
-INSERT INTO seatBooking.Feedback (employeeId,seatId,rating)
-VALUES
-('024452',34, 5);
-
-
-INSERT INTO seatBooking.Feedback (employeeId,seatId,rating)
-VALUES
-('024385',56, 3);
-
-INSERT INTO seatBooking.Feedback (employeeId,seatId,rating)
-VALUES
-('024466',44, 4);
-
-INSERT INTO seatBooking.Feedback (employeeId,seatId,rating)
-VALUES
-('024461',50, 5);
+(UUID(),'024181', 4);
+(UUID(),'024452', 5);
+(UUID(),'024385', 3);
+(UUID(),'024466', 4);
+(UUID(),'024461', 5);
 
 create index date_index on seatBooking.Reservation (dateOfBooking);
 create index date_time_index on seatBooking.Reservation (dateOfBooking, bookingStartsAt, bookingEndsAt);
