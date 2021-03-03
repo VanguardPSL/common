@@ -173,7 +173,7 @@ create table seatBooking.Feedback(
     rating int NOT NULL,
     comments varchar(100),
     PRIMARY KEY (id),
-	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE,
+	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE
 );
 
 
