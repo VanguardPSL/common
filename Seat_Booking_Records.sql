@@ -179,10 +179,10 @@ create table seatBooking.Feedback(
 
 INSERT INTO seatBooking.Feedback (id,employeeId,rating)
 VALUES
-('0861217e-2a80-416d-a262-5c1721762bd6', '024181', 4);
-('5d3d8b25-eb48-4296-9c3a-5d3e120ace4f', '024452', 5);
-('5974a2f5-5251-45b5-bd92-90577d96d547', '024385', 3);
-('594cde7b-babb-4fe1-92d3-068fd0c3ca89', '024466', 4);
+('0861217e-2a80-416d-a262-5c1721762bd6', '024181', 4),
+('5d3d8b25-eb48-4296-9c3a-5d3e120ace4f', '024452', 5),
+('5974a2f5-5251-45b5-bd92-90577d96d547', '024385', 3),
+('594cde7b-babb-4fe1-92d3-068fd0c3ca89', '024466', 4),
 ('11d21ff0-2374-4a0d-87cd-119c923a1303', '024461', 5);
 
 create index date_index on seatBooking.Reservation (dateOfBooking);
