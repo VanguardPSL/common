@@ -1062,10 +1062,10 @@ create table seatBooking.Reservation(
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('12a81ecf-8f6f-4102-a15f-58e804c92792','024181','d33f75f8-9d5b-485a-8892-9d513c7e0677','2021-02-21','14:00:00','17:00:00','occupied','14:05:00','17:00:00'),
-('ea876495-c443-4210-b2ea-6b734b3438c0','024181','6c8a9d15-1289-4024-8df9-ece55a31c853','2021-02-22','14:00:00','17:00:00','occupied','14:15:00','16:30:00'),
-('3cd5c3d2-9e19-49fb-827f-1d789b3cd8f5','024181','a4512c58-bf3c-4709-a90a-119bcfac4e5a','2021-02-23','14:00:00','17:00:00','occupied','14:15:00','16:30:00'),
-('e9c46b82-48a3-4017-a099-781321eb815e','024181','6a77aad4-e992-4af2-962e-f6dbb6306497','2021-02-24','14:00:00','17:00:00','occupied','14:15:00','16:30:00');
+('12a81ecf-8f6f-4102-a15f-58e804c92792','024181','d33f75f8-9d5b-485a-8892-9d513c7e0677','2021-02-21','14:00:00','17:00:00','released','14:05:00','17:00:00'),
+('ea876495-c443-4210-b2ea-6b734b3438c0','024181','6c8a9d15-1289-4024-8df9-ece55a31c853','2021-02-22','14:00:00','17:00:00','released','14:15:00','16:30:00'),
+('3cd5c3d2-9e19-49fb-827f-1d789b3cd8f5','024181','a4512c58-bf3c-4709-a90a-119bcfac4e5a','2021-02-23','14:00:00','17:00:00','released','14:15:00','16:30:00'),
+('e9c46b82-48a3-4017-a099-781321eb815e','024181','6a77aad4-e992-4af2-962e-f6dbb6306497','2021-02-24','14:00:00','17:00:00','released','14:15:00','16:30:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
@@ -1073,7 +1073,7 @@ VALUES
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('4adc0e22-5f80-443d-af9b-8231813f6428','024452','4ea1627a-bc0f-4da1-ad51-dc1e94ae120d','2021-02-20','11:00:00','17:00:00','occupied','11:10:00','17:20:00');
+('4adc0e22-5f80-443d-af9b-8231813f6428','024452','4ea1627a-bc0f-4da1-ad51-dc1e94ae120d','2021-02-20','11:00:00','17:00:00','released','11:10:00','17:20:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
@@ -1081,45 +1081,45 @@ VALUES
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('65afbbe3-bc42-4781-ae3f-65edcb3b7a57','024452','c89ed9d5-35a1-4edd-8316-ae04dfefeca2','2021-02-22','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
+('65afbbe3-bc42-4781-ae3f-65edcb3b7a57','024452','c89ed9d5-35a1-4edd-8316-ae04dfefeca2','2021-02-22','13:00:00','16:00:00','released','13:20:00','16:20:00');
 
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('8a66cc96-2cd5-444f-9472-3455501c765b','024385','3a50d571-b9ec-432a-8ed6-166e2fde43b9','2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
+('8a66cc96-2cd5-444f-9472-3455501c765b','024385','3a50d571-b9ec-432a-8ed6-166e2fde43b9','2021-02-23','13:00:00','16:00:00','released','13:20:00','16:20:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('1b8db6a3-5815-4f29-a8e4-b6724d9231fd','024385','e4c09428-60ee-4c1f-97a9-02ea11729710','2021-02-24','13:00:00','16:00:00','occupied','13:10:00','15:50:00');
+('1b8db6a3-5815-4f29-a8e4-b6724d9231fd','024385','e4c09428-60ee-4c1f-97a9-02ea11729710','2021-02-24','13:00:00','16:00:00','released','13:10:00','15:50:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('e81909a0-71e8-4fea-b2ab-cebea99a699d','035163','0a19e928-c261-48d6-9486-723abbdf9abb','2021-02-22','09:00:00','15:00:00','occupied','09:20:00','14:45:00');
+('e81909a0-71e8-4fea-b2ab-cebea99a699d','035163','0a19e928-c261-48d6-9486-723abbdf9abb','2021-02-22','09:00:00','15:00:00','released','09:20:00','14:45:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('b2c664f6-4071-4597-945c-6938004819a9','035163','cf0d1c04-214a-44db-aa27-aad0d9cd56e5','2021-02-23','09:00:00','15:00:00','occupied','09:20:00','14:45:00');
+('b2c664f6-4071-4597-945c-6938004819a9','035163','cf0d1c04-214a-44db-aa27-aad0d9cd56e5','2021-02-23','09:00:00','15:00:00','released','09:20:00','14:45:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('f71fe71e-743d-423f-9b08-b3025b087a3b','024461','d5ee403e-c7d1-4331-a462-46bafa466785','2021-02-24','09:00:00','15:00:00','occupied','09:20:00','14:50:00');
+('f71fe71e-743d-423f-9b08-b3025b087a3b','024461','d5ee403e-c7d1-4331-a462-46bafa466785','2021-02-24','09:00:00','15:00:00','released','09:20:00','14:50:00');
 
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('e688451d-d0ee-4958-b6ff-728d38a9491a','024461','466945ef-f767-4953-8223-cc7996578c60','2021-02-24','15:00:00','18:00:00','occupied','15:20:00','17:50:00');
+('e688451d-d0ee-4958-b6ff-728d38a9491a','024461','466945ef-f767-4953-8223-cc7996578c60','2021-02-24','15:00:00','18:00:00','released','15:20:00','17:50:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('dfd85bf4-a30a-43d5-b1b0-4b11efb36627','024466','04fa0ab3-c350-47cb-aebc-508b77b51892','2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
+('dfd85bf4-a30a-43d5-b1b0-4b11efb36627','024466','04fa0ab3-c350-47cb-aebc-508b77b51892','2021-02-23','13:00:00','16:00:00','released','13:20:00','16:20:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('edfb635d-7318-404d-9195-aab6bcefffb8','024466','e4bcb4cc-82e8-425d-a2c6-6e3ba85d6096','2021-02-24','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
+('edfb635d-7318-404d-9195-aab6bcefffb8','024466','e4bcb4cc-82e8-425d-a2c6-6e3ba85d6096','2021-02-24','13:00:00','16:00:00','released','13:20:00','16:20:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId,occupiedFrom,occupiedTill)
 VALUES
-('944d3728-6529-41f1-8b68-80a5f1c286be','024461','8319e68e-7ffc-432e-848d-b191aa45968f','2021-02-23','13:00:00','16:00:00','occupied','13:20:00','16:20:00');
+('944d3728-6529-41f1-8b68-80a5f1c286be','024461','8319e68e-7ffc-432e-848d-b191aa45968f','2021-02-23','13:00:00','16:00:00','released','13:20:00','16:20:00');
 
 INSERT INTO seatBooking.Reservation (id,employeeId,seatId,dateOfBooking,bookingStartsAt,bookingEndsAt,bookingStatusId)
 VALUES
