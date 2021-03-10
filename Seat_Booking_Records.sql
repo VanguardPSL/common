@@ -4,7 +4,7 @@ use seatBooking;
 
 create table seatBooking.SeatWing(
     id varchar(36) NOT NULL,
-    wingName varchar(10) NOT NULL,
+    wingName varchar(36) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -12,7 +12,7 @@ INSERT INTO seatBooking.SeatWing VALUES ('north' , 'NORTH'),('south' , 'SOUTH'),
 
 create table seatBooking.BookingStatus(
     id varchar(36) NOT NULL,
-    status varchar(15) NOT NULL,
+    status varchar(36) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -1130,7 +1130,7 @@ create table seatBooking.Feedback(
     id varchar(36) NOT NULL,
     employeeId varchar(36) NOT NULL,
     rating int NOT NULL,
-    comments varchar(100),
+    comments varchar(500),
     PRIMARY KEY (id),
 	FOREIGN KEY (employeeId) REFERENCES Employee(id) ON DELETE CASCADE
 );
